@@ -5,7 +5,7 @@ A detailed guide (Walkthrough.txt) is available for download with instructions f
 ## Required Software 
 This code is intended to be run in a UNIX environment and requires:  
   -[R](https://cran.r-project.org/) (and the packages 'Matrix' and 'igraph'): Required for most analysis.  
-  -[usearch](http://drive5.com/usearch/): Used to cluster homologous genes (Note: only 32-bit usearch is free. Larger projects might not be possible without buying a 64-bit license.)
+  -[usearch](http://drive5.com/usearch/): Used to cluster homologous genes (Note: only 32-bit usearch is free. Larger projects might not be possible without buying a 64-bit license.)  
   -[MCL](https://micans.org/mcl/index.html): used to identify graphical clusters in networks.  
   -[Cytoscape](http://www.cytoscape.org): used to visualize networks.    
 
