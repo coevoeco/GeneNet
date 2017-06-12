@@ -1,0 +1,913 @@
+NC_000866	Escherichia coli
+NC_000871	Streptococcus thermophilus
+NC_000872	Streptococcus thermophilus
+NC_000902	Escherichia coli
+NC_000924	Escherichia coli
+NC_000929	Escherichia coli
+NC_001271	Yersinia enterocolitica
+NC_001330	Escherichia coli
+NC_001332	Escherichia coli
+NC_001335	Mycobacterium tuberculosis
+NC_001416	Escherichia coli
+NC_001420	Escherichia coli
+NC_001422	Escherichia coli
+NC_001604	Escherichia coli
+NC_001629	Lactococcus lactis subsp. lactis IL1403
+NC_001706	Lactococcus lactis subsp. cremoris MG1363
+NC_001741	Chlamydia psittaci
+NC_001835	Lactococcus lactis subsp. cremoris MG1363
+NC_001884	Bacillus subtilis
+NC_001895	Escherichia coli
+NC_001900	Mycobacterium tuberculosis
+NC_001901	Escherichia coli
+NC_001909	Lactococcus lactis subsp. lactis IL1403
+NC_001954	Escherichia coli
+NC_001998	Chlamydia psittaci
+NC_002014	Escherichia coli
+NC_002072	Streptococcus thermophilus
+NC_002166	Escherichia coli
+NC_002167	Escherichia coli
+NC_002185	Streptococcus thermophilus
+NC_002194	Chlamydia psittaci
+NC_002214	Streptococcus thermophilus
+NC_002321	Staphylococcus aureus
+NC_002362	Vibrio parahaemolyticus
+NC_002363	Vibrio parahaemolyticus
+NC_002371	Salmonella enterica
+NC_002486	Staphylococcus aureus
+NC_002643	Bdellovibrio bacteriovorus
+NC_002649	Bacillus subtilis
+NC_002656	Mycobacterium smegmatis
+NC_002661	Staphylococcus aureus
+NC_002666	Lactococcus lactis subsp. lactis IL1403
+NC_002667	Lactococcus lactis subsp. lactis IL1403
+NC_002668	Lactococcus lactis subsp. lactis IL1403
+NC_002669	Lactococcus lactis subsp. lactis IL1403
+NC_002671	Lactococcus lactis subsp. lactis IL1403
+NC_002703	Lactococcus lactis subsp. cremoris UC509
+NC_002730	Escherichia coli
+NC_002747	Lactococcus lactis subsp. cremoris 3107
+NC_002796	Lactococcus lactis subsp. cremoris H2
+NC_003050	Streptococcus pneumoniae
+NC_003278	Pseudomonas aeruginosa
+NC_003287	Escherichia coli
+NC_003288	Staphylococcus aureus
+NC_003298	Escherichia coli
+NC_003309	Burkholderia thailandensis
+NC_003313	Vibrio cholerae
+NC_003327	Vibrio cholerae
+NC_003356	Escherichia coli
+NC_003387	Mycobacterium smegmatis
+NC_003444	Shigella flexneri
+NC_003524	Clostridium perfringens
+NC_003525	Escherichia coli
+NC_003907	Vibrio parahaemolyticus
+NC_004066	Lactococcus lactis SMQ-86
+NC_004165	Bacillus subtilis
+NC_004166	Bacillus subtilis
+NC_004167	Bacillus subtilis
+NC_004302	Lactococcus lactis subsp. cremoris R1
+NC_004303	Streptococcus thermophilus
+NC_004306	Vibrio cholerae
+NC_004313	Salmonella enterica
+NC_004333	Burkholderia cepacia
+NC_004348	Salmonella enterica
+NC_004456	Vibrio harveyi
+NC_004466	Pseudomonas aeruginosa
+NC_004584	Streptococcus pyogenes
+NC_004585	Streptococcus pyogenes
+NC_004586	Streptococcus pyogenes
+NC_004587	Streptococcus pyogenes
+NC_004588	Streptococcus pyogenes
+NC_004589	Streptococcus pyogenes
+NC_004615	Staphylococcus aureus
+NC_004616	Staphylococcus aureus
+NC_004617	Staphylococcus aureus
+NC_004629	Pseudomonas aeruginosa
+NC_004665	Pseudomonas putida
+NC_004678	Staphylococcus aureus
+NC_004679	Staphylococcus aureus
+NC_004680	Mycobacterium
+NC_004681	Mycobacterium
+NC_004682	Mycobacterium
+NC_004683	Mycobacterium
+NC_004684	Mycobacterium smegmatis
+NC_004685	Mycobacterium
+NC_004686	Mycobacterium smegmatis
+NC_004687	Mycobacterium smegmatis
+NC_004688	Mycobacterium
+NC_004689	Mycobacterium
+NC_004736	Vibrio cholerae
+NC_004740	Staphylococcus aureus
+NC_004745	Yersinia pestis
+NC_004746	Lactococcus lactis DPC4268
+NC_004775	Salmonella enterica
+NC_004777	Yersinia pestis
+NC_004813	Escherichia coli
+NC_004814	Streptococcus sp. group C
+NC_004820	Bacillus cereus
+NC_004821	Bacillus cereus
+NC_004831	Salmonella enterica
+NC_004928	Escherichia coli
+NC_004996	Streptococcus mitis
+NC_005045	Pseudomonas aeruginosa
+NC_005066	Escherichia coli
+NC_005069	Yersinia enterocolitica
+NC_005083	Vibrio parahaemolyticus
+NC_005091	Burkholderia cepacia
+NC_005178	Pseudomonas aeruginosa
+NC_005258	Bacillus thuringiensis
+NC_005259	Mycobacterium
+NC_005263	Burkholderia cenocepacia
+NC_005282	Salmonella enterica
+NC_005284	Burkholderia pseudomallei
+NC_005294	Streptococcus pneumoniae
+NC_005340	Salmonella enterica
+NC_005342	Burkholderia cepacia
+NC_005344	Shigella flexneri
+NC_005356	Staphylococcus aureus
+NC_005822	Lactococcus lactis subsp. cremoris
+NC_005833	Escherichia coli
+NC_005841	Salmonella enterica
+NC_005856	Escherichia coli
+NC_005859	Escherichia coli
+NC_005880	Staphylococcus aureus
+NC_005882	Burkholderia cenocepacia
+NC_005884	Pseudomonas aeruginosa
+NC_005886	Burkholderia cenocepacia
+NC_005887	Burkholderia cepacia
+NC_005948	Vibrio parahaemolyticus
+NC_005949	Vibrio parahaemolyticus
+NC_006294	Vibrio cholerae
+NC_006548	Pseudomonas aeruginosa
+NC_006552	Pseudomonas aeruginosa
+NC_006557	Bacillus clarkii
+NC_006820	Synechococcus sp. SynWH7803
+NC_006882	Prochlorococcus sp. MED4
+NC_006883	Prochlorococcus sp. NATL1A
+NC_006884	Prochlorococcus sp. NATL2A
+NC_006940	Salmonella enterica
+NC_006945	Bacillus thuringiensis
+NC_006949	Salmonella enterica
+NC_007019	Streptococcus thermophilus
+NC_007021	Staphylococcus aureus
+NC_007023	Escherichia coli
+NC_007046	Staphylococcus aureus
+NC_007047	Staphylococcus [pred]
+NC_007048	Staphylococcus aureus
+NC_007049	Staphylococcus aureus
+NC_007050	Staphylococcus aureus
+NC_007051	Staphylococcus aureus
+NC_007052	Staphylococcus aureus
+NC_007053	Staphylococcus aureus
+NC_007054	Staphylococcus aureus
+NC_007055	Staphylococcus aureus
+NC_007056	Staphylococcus aureus
+NC_007057	Staphylococcus aureus
+NC_007058	Staphylococcus aureus
+NC_007059	Staphylococcus aureus
+NC_007060	Staphylococcus aureus
+NC_007061	Staphylococcus aureus
+NC_007062	Staphylococcus aureus
+NC_007063	Staphylococcus aureus
+NC_007064	Staphylococcus aureus
+NC_007065	Staphylococcus aureus
+NC_007066	Staphylococcus aureus
+NC_007145	Burkholderia pseudomallei
+NC_007149	Vibrio [pred]
+NC_007291	Escherichia coli
+NC_007456	Escherichia coli
+NC_007457	Bacillus anthracis
+NC_007458	Bacillus cereus
+NC_007461	Chlamydophila abortus
+NC_007497	Burkholderia cepacia
+NC_007603	Escherichia coli
+NC_007637	Escherichia coli
+NC_007734	Bacillus anthracis
+NC_007804	Escherichia coli
+NC_007805	Pseudomonas aeruginosa
+NC_007806	Pseudomonas aeruginosa
+NC_007807	Pseudomonas aeruginosa
+NC_007808	Pseudomonas aeruginosa
+NC_007809	Pseudomonas aeruginosa
+NC_007810	Pseudomonas aeruginosa
+NC_007814	Bacillus anthracis
+NC_007817	Escherichia coli
+NC_007821	Escherichia coli
+NC_007856	Escherichia coli
+NC_007917	Clostridium difficile
+NC_008152	Escherichia coli
+NC_008194	Mycobacterium
+NC_008195	Mycobacterium
+NC_008196	Mycobacterium
+NC_008197	Mycobacterium
+NC_008198	Mycobacterium
+NC_008199	Mycobacterium smegmatis
+NC_008200	Mycobacterium
+NC_008203	Mycobacterium
+NC_008204	Mycobacterium
+NC_008205	Mycobacterium
+NC_008206	Mycobacterium smegmatis
+NC_008207	Mycobacterium smegmatis
+NC_008355	Chlamydia pecorum
+NC_008363	Lactococcus lactis subsp. lactis IL1403
+NC_008364	Lactococcus lactis SMQ-562
+NC_008370	Lactococcus lactis subsp. cremoris NZ9000
+NC_008371	Lactococcus lactis subsp. cremoris NZ9000
+NC_008464	Escherichia coli
+NC_008562	Microcystis aeruginosa
+NC_008583	Staphylococcus aureus
+NC_008617	Staphylococcus [pred]
+NC_008689	Staphylococcus aureus
+NC_008694	Yersinia pestis
+NC_008717	Pseudomonas aeruginosa
+NC_008720	Escherichia coli
+NC_008721	Streptococcus suis
+NC_008722	Staphylococcus epidermidis
+NC_008723	Staphylococcus epidermidis
+NC_008798	Staphylococcus aureus
+NC_008799	Staphylococcus aureus
+NC_009015	Burkholderia ambifaria
+NC_009016	Vibrio parahaemolyticus
+NC_009018	Streptococcus dysgalactiae
+NC_009231	Clostridium difficile
+NC_009232	Salmonella enterica
+NC_009234	Burkholderia thailandensis
+NC_009235	Burkholderia pseudomallei
+NC_009236	Burkholderia pseudomallei
+NC_009237	Burkholderia thailandensis
+NC_009447	Burkholderia cepacia
+NC_009514	Escherichia coli
+NC_009526	Staphylococcus aureus
+NC_009540	Escherichia coli
+NC_009604	Burkholderia cenocepacia
+NC_009737	Bacillus sp. 6k512
+NC_009760	Bacillus thuringiensis
+NC_009761	Staphylococcus aureus
+NC_009762	Staphylococcus aureus
+NC_009763	Staphylococcus aureus
+NC_009817	Lactococcus lactis subsp. cremoris IE-16
+NC_009818	Pseudomonas aeruginosa
+NC_009819	Streptococcus equi
+NC_009820	Mycobacterium smegmatis
+NC_009821	Escherichia coli
+NC_009875	Staphylococcus aureus
+NC_009877	Mycobacterium [pred]
+NC_009878	Mycobacterium [pred]
+NC_009935	Pseudomonas aeruginosa
+NC_009936	Pseudomonas aeruginosa
+NC_009993	Mycobacterium smegmatis
+NC_010105	Escherichia coli
+NC_010106	Escherichia coli
+NC_010116	Pseudomonas aeruginosa
+NC_010147	Staphylococcus aureus
+NC_010237	Escherichia coli
+NC_010275	Vibrio cholerae
+NC_010324	Escherichia coli
+NC_010325	Pseudomonas aeruginosa
+NC_010326	Pseudomonas aeruginosa
+NC_010353	Streptococcus thermophilus
+NC_010391	Salmonella enterica
+NC_010392	Salmonella enterica
+NC_010393	Salmonella enterica
+NC_010463	Salmonella enterica
+NC_010495	Salmonella enterica
+NC_010576	Lactococcus lactis SMQ-450
+NC_010583	Escherichia coli
+NC_010762	Mycobacterium smegmatis
+NC_010763	Mycobacterium smegmatis
+NC_010807	Salmonella enterica
+NC_010808	Staphylococcus aureus
+NC_010945	Streptococcus gordonii
+NC_011019	Mycobacterium [pred]
+NC_011020	Mycobacterium [pred]
+NC_011021	Mycobacterium [pred]
+NC_011022	Mycobacterium [pred]
+NC_011023	Mycobacterium [pred]
+NC_011038	Yersinia pestis
+NC_011039	Mycobacterium smegmatis
+NC_011040	Escherichia coli
+NC_011041	Escherichia coli
+NC_011042	Escherichia coli
+NC_011044	Mycobacterium smegmatis
+NC_011045	Escherichia coli
+NC_011046	Lactococcus lactis [Poland]
+NC_011048	Bacillus subtilis
+NC_011054	Mycobacterium [pred]
+NC_011055	Mycobacterium [pred]
+NC_011056	Mycobacterium [pred]
+NC_011057	Mycobacterium [pred]
+NC_011105	Pseudomonas aeruginosa
+NC_011107	Pseudomonas aeruginosa
+NC_011165	Pseudomonas aeruginosa
+NC_011166	Pseudomonas aeruginosa
+NC_011167	Bacillus thuringiensis
+NC_011216	Burkholderia cenocepacia
+NC_011267	Mycobacterium smegmatis
+NC_011269	Mycobacterium [pred]
+NC_011270	Mycobacterium smegmatis
+NC_011271	Mycobacterium [pred]
+NC_011272	Mycobacterium [pred]
+NC_011273	Mycobacterium smegmatis
+NC_011284	Mycobacterium smegmatis
+NC_011285	Mycobacterium smegmatis
+NC_011286	Mycobacterium smegmatis
+NC_011287	Mycobacterium smegmatis
+NC_011288	Mycobacterium smegmatis
+NC_011289	Mycobacterium smegmatis
+NC_011290	Mycobacterium smegmatis
+NC_011291	Mycobacterium smegmatis
+NC_011292	Mycobacterium smegmatis
+NC_011318	Clostridium perfringens
+NC_011344	Staphylococcus aureus
+NC_011356	Escherichia coli
+NC_011357	Escherichia coli
+NC_011373	Pseudomonas aeruginosa
+NC_011398	Clostridium difficile
+NC_011421	Bacillus subtilis
+NC_011523	Bacillus anthracis
+NC_011611	Pseudomonas aeruginosa
+NC_011612	Staphylococcus aureus
+NC_011613	Pseudomonas aeruginosa
+NC_011614	Staphylococcus aureus
+NC_011645	Bacillus [pred]
+NC_011756	Pseudomonas aeruginosa
+NC_011802	Salmonella enterica
+NC_011810	Pseudomonas aeruginosa
+NC_011976	Salmonella enterica
+NC_012027	Mycobacterium smegmatis
+NC_012223	Escherichia coli
+NC_012418	Pseudomonas aeruginosa
+NC_012635	Escherichia coli [pred]
+NC_012638	Escherichia coli [pred]
+NC_012662	Vibrio parahaemolyticus
+NC_012663	Lactococcus lactis subsp. cremoris C10
+NC_012740	Escherichia coli
+NC_012741	Escherichia coli
+NC_012743	Burkholderia cenocepacia
+NC_012749	Escherichia coli
+NC_012753	Streptococcus thermophilus
+NC_012756	Streptococcus oralis
+NC_012757	Vibrio cholerae
+NC_012784	Staphylococcus aureus
+NC_012788	Mycobacterium smegmatis
+NC_012868	Escherichia coli
+NC_012884	Streptococcus mutans
+NC_013055	Burkholderia pyrrocinia strain LMG 21824
+NC_013059	Salmonella enterica
+NC_013195	Staphylococcus aureus
+NC_013594	Escherichia coli
+NC_013598	Streptococcus thermophilus
+NC_013638	Pseudomonas fluorescens
+NC_013645	Streptococcus thermophilus
+NC_013650	Mycobacterium smegmatis
+NC_013651	Vibrio [pred]
+NC_013691	Pseudomonas aeruginosa
+NC_013692	Pseudomonas aeruginosa
+NC_013693	Shigella boydii
+NC_013694	Mycobacterium smegmatis
+NC_013936	Mycobacterium smegmatis
+NC_014260	Escherichia coli
+NC_014458	Mycobacterium smegmatis
+NC_014459	Mycobacterium smegmatis
+NC_014460	Staphylococcus aureus
+NC_014461	Mycobacterium smegmatis
+NC_014467	Escherichia coli
+NC_014595	Shigella sonnei
+NC_014660	Acinetobacter [pred]
+NC_014661	Acinetobacter johnsonii
+NC_014662	Escherichia coli
+NC_014663	Acinetobacter johnsonii
+NC_014792	Escherichia coli
+NC_014900	Salmonella enterica
+NC_014901	Mycobacterium smegmatis
+NC_015157	Vibrio cholerae
+NC_015158	Vibrio cholerae
+NC_015159	Vibrio cholerae
+NC_015208	Pseudomonas fluorescens
+NC_015249	Escherichia coli
+NC_015250	Acinetobacter johnsonii
+NC_015262	Clostridium difficile
+NC_015263	Lactococcus lactis subsp. cremoris  ML8
+NC_015264	Pseudomonas fluorescens
+NC_015265	Burkholderia cenocepacia
+NC_015266	Burkholderia ambifaria
+NC_015269	Escherichia coli/ Salmonella typhimurium
+NC_015271	Salmonella enterica
+NC_015273	Burkholderia cenocepacia
+NC_015274	Streptococcus pneumoniae
+NC_015280	Prochlorococcus sp. MED4
+NC_015281	Synechococcus sp. WH8102
+NC_015283	Prochlorococcus sp. MIT9303
+NC_015284	Prochlorococcus sp. MED4
+NC_015285	Synechococcus sp. WH7803
+NC_015289	Synechococcus sp. WH8102
+NC_015290	Prochlorococcus sp. NATL1A
+NC_015294	Pseudomonas aeruginosa
+NC_015296	Salmonella enterica
+NC_015456	Shigella flexneri
+NC_015457	Shigella flexneri
+NC_015568	Clostridium difficile
+NC_015584	Mycobacterium smegmatis
+NC_015719	Escherichia coli
+NC_015933	Escherichia coli [pred]
+NC_015938	Salmonella enterica
+NC_016071	Salmonella enterica
+NC_016073	Escherichia coli
+NC_016158	Escherichia coli
+NC_016160	Escherichia coli
+NC_016162	Vibrio cholerae
+NC_016163	Yersinia enterocolitica
+NC_016563	Bacillus cereus
+NC_016565	Staphylococcus aureus
+NC_016566	Shigella sonnei
+NC_016570	Escherichia coli
+NC_016571	Pseudomonas fluorescens
+NC_016657	Prochlorococcus sp. MIT9515
+NC_016658	Prochlorococcus sp. NATL1A
+NC_016659	Prochlorococcus sp. NATL2A
+NC_016761	Salmonella enterica
+NC_016762	Pseudomonas aeruginosa
+NC_016763	Salmonella enterica
+NC_016764	Pseudomonas tolaasii
+NC_016765	Pseudomonas aeruginosa
+NC_017674	Pseudomonas aeruginosa
+NC_017864	Pseudomonas aeruginosa
+NC_017865	Pseudomonas aeruginosa
+NC_017968	Staphylococcus aureus
+NC_017969	Escherichia coli
+NC_017971	Pseudomonas putida
+NC_017972	Pseudomonas putida
+NC_017973	Mycobacterium smegmatis
+NC_017976	Bacillus cereus
+NC_017980	Clostridium perfringens
+NC_017984	Acinetobacter baumannii
+NC_017985	Salmonella enterica
+NC_018083	Clostridium perfringens
+NC_018084	Clostridium perfringens
+NC_018085	Bacillus thuringiensis
+NC_018274	Pseudomonas aeruginosa
+NC_018275	Salmonella enterica
+NC_018277	Staphylococcus pasteuri
+NC_018278	Burkholderia cenocepacia
+NC_018279	Salmonella enterica
+NC_018281	Staphylococcus epidermidis
+NC_018282	Pseudomonas aeruginosa
+NC_018283	Burkholderia cenocepacia
+NC_018284	Staphylococcus epidermidis
+NC_018452	Burkholderia cepacia
+NC_018835	Escherichia coli
+NC_018843	Salmonella enterica
+NC_018846	Escherichia coli
+NC_018850	Pseudomonas fluorescens
+NC_018854	Escherichia coli
+NC_018855	Escherichia coli
+NC_018856	Bacillus cereus
+NC_018857	Bacillus cereus
+NC_018859	Escherichia coli
+NC_018860	Bacillus cereus
+NC_018863	Bacillus cereus
+NC_019399	Escherichia coli
+NC_019403	Escherichia coli
+NC_019404	Escherichia coli
+NC_019417	Salmonella enterica
+NC_019418	Streptococcus suis
+NC_019419	Escherichia coli
+NC_019421	Clostridium difficile
+NC_019422	Clostridium difficile
+NC_019423	Escherichia coli
+NC_019442	Escherichia coli
+NC_019445	Escherichia coli
+NC_019448	Staphylococcus aureus
+NC_019450	Pseudomonas aeruginosa
+NC_019451	Pseudomonas aeruginosa
+NC_019452	Escherichia coli
+NC_019457	Vibrio cholerae
+NC_019487	Bacillus subtilis
+NC_019488	Salmonella enterica
+NC_019496	Clostridium perfringens
+NC_019500	Escherichia coli
+NC_019501	Escherichia coli
+NC_019502	Bacillus thuringiensis
+NC_019503	Escherichia coli
+NC_019505	Escherichia coli
+NC_019506	Clostridium perfringens
+NC_019508	Clostridium perfringens
+NC_019511	Staphylococcus aureus
+NC_019513	Staphylococcus aureus
+NC_019516	Synechococcus sp. WH8102
+NC_019517	Escherichia coli
+NC_019518	Vibrio cholerae
+NC_019520	Escherichia coli [equine]
+NC_019523	Clostridium perfringens
+NC_019529	Vibrio parahaemolyticus
+NC_019530	Salmonella enterica
+NC_019539	Salmonella enterica
+NC_019545	Salmonella enterica
+NC_019704	Escherichia coli
+NC_019705	Escherichia coli
+NC_019706	Escherichia coli
+NC_019708	Escherichia coli
+NC_019709	Escherichia coli
+NC_019710	Escherichia coli
+NC_019711	Escherichia coli
+NC_019713	Vibrio parahaemolyticus
+NC_019714	Escherichia coli
+NC_019715	Escherichia coli
+NC_019716	Escherichia coli
+NC_019717	Escherichia coli
+NC_019718	Escherichia coli
+NC_019719	Escherichia coli
+NC_019720	Escherichia coli
+NC_019721	Escherichia coli
+NC_019722	Vibrio parahaemolyticus
+NC_019723	Escherichia coli
+NC_019724	Escherichia coli
+NC_019725	Escherichia coli [pred]
+NC_019726	Staphylococcus aureus
+NC_019767	Escherichia coli
+NC_019768	Escherichia coli
+NC_019769	Escherichia coli
+NC_019813	Pseudomonas aeruginosa
+NC_019909	Yersinia enterocolitica
+NC_019910	Salmonella [pred]
+NC_019911	Yersinia enterocolitica
+NC_019912	Bacillus thuringiensis
+NC_019913	Pseudomonas aeruginosa
+NC_019914	Staphylococcus hominis
+NC_019915	Staphylococcus capitis
+NC_019917	Burkholderia cenocepacia
+NC_019918	Pseudomonas aeruginosa
+NC_019919	Yersinia enterocolitica
+NC_019921	Staphylococcus [pred]
+NC_019935	Pseudomonas aeruginosa
+NC_020079	Escherichia coli
+NC_020081	Bacillus pumilus
+NC_020197	Streptococcus thermophilus
+NC_020199	Staphylococcus aureus
+NC_020414	Salmonella enterica
+NC_020416	Salmonella enterica
+NC_020477	Bacillus pumilus
+NC_020478	Bacillus pumilus
+NC_020479	Bacillus pumilus
+NC_020480	Bacillus pumilus
+NC_020486	Synechococcus sp. WH7803
+NC_020488	Vibrio vulnificus
+NC_020835	Prochlorococcus sp. NATL2A
+NC_020836	Synechococcus sp. WH7803
+NC_020837	Synechococcus sp. WH7803
+NC_020838	Synechococcus sp. WH7803
+NC_020843	Vibrio sp. 11985
+NC_020845	Prochlorococcus sp. MED4
+NC_020846	Vibrio sp. YD21
+NC_020847	Prochlorococcus sp. MED4
+NC_020848	Vibrio parahaemolyticus
+NC_020851	Synechococcus sp. WH7803
+NC_020854	Synechococcus sp. WH7803
+NC_020855	Prochlorococcus sp. NATL2A
+NC_020857	Prochlorococcus sp. MED4
+NC_020863	Vibrio natriegens
+NC_020865	Synechococcus sp. WH7803
+NC_020868	Vibrio parahaemolyticus
+NC_020872	Prochlorococcus marinus SS120
+NC_020873	Bacillus cereus
+NC_020874	Prochlorococcus sp. MIT9312
+NC_020876	Mycobacterium smegmatis
+NC_020877	Staphylococcus aureus
+NC_020878	Prochlorococcus sp. MED4
+NC_020883	Bacillus subtilis
+NC_021061	Mycobacterium smegmatis
+NC_021062	Pseudomonas fluorescens
+NC_021063	Mycobacterium avium subsp. paratuberculosis
+NC_021067	Vibrio splendidus
+NC_021068	Vibrio fischeri
+NC_021070	Vibrio splendidus
+NC_021071	Prochlorococcus sp. MIT9303
+NC_021072	Synechococcus sp. WH7803
+NC_021073	Vibrio splendidus
+NC_021296	Mycobacterium smegmatis
+NC_021297	Mycobacterium smegmatis
+NC_021299	Mycobacterium smegmatis
+NC_021301	Mycobacterium smegmatis
+NC_021302	Mycobacterium smegmatis
+NC_021303	Mycobacterium smegmatis
+NC_021305	Mycobacterium smegmatis
+NC_021306	Mycobacterium smegmatis
+NC_021307	Mycobacterium smegmatis
+NC_021308	Mycobacterium smegmatis
+NC_021309	Mycobacterium smegmatis
+NC_021310	Mycobacterium smegmatis
+NC_021311	Mycobacterium smegmatis
+NC_021315	Escherichia coli/Salmonella enterica serovar Typhimurium/Serratia
+NC_021316	Acinetobacter baumannii
+NC_021317	Salmonella enterica
+NC_021318	Mycobacterium smegmatis
+NC_021323	Staphylococcus aureus
+NC_021324	Mycobacterium smegmatis
+NC_021325	Clostridium perfringens
+NC_021326	Staphylococcus aureus
+NC_021331	Shigella flexneri
+NC_021332	Staphylococcus aureus
+NC_021334	Mycobacterium smegmatis
+NC_021336	Bacillus weihenstephanensis
+NC_021337	Acinetobacter baumannii
+NC_021338	Mycobacterium smegmatis
+NC_021343	Burkholderia pseudomallei
+NC_021344	Escherichia coli
+NC_021346	Mycobacterium smegmatis
+NC_021348	Mycobacterium smegmatis
+NC_021349	Mycobacterium smegmatis
+NC_021533	Mycobacterium smegmatis
+NC_021534	Vibrio sp. YD38
+NC_021535	Mycobacterium smegmatis
+NC_021538	Mycobacterium smegmatis
+NC_021540	Vibrio cholerae
+NC_021556	Mycobacterium smegmatis
+NC_021559	Prochlorococcus sp. NATL2A
+NC_021562	Vibrio cholerae
+NC_021772	Salmonella enterica
+NC_021773	Staphylococcus aureus
+NC_021774	Salmonella enterica
+NC_021775	Salmonella enterica
+NC_021777	Salmonella [pred]
+NC_021779	Salmonella enterica
+NC_021780	Salmonella enterica
+NC_021782	Salmonella enterica
+NC_021783	Salmonella enterica
+NC_021801	Staphylococcus aureus
+NC_021852	Lactococcus lactis subsp. lactis IL1403
+NC_021853	Lactococcus lactis subsp. lactis IL1403
+NC_021854	Lactococcus lactis subsp. cremoris
+NC_021855	Lactococcus lactis subsp. cremoris V32.2
+NC_021856	Bacillus subtilis
+NC_021857	Shigella [pred]
+NC_021859	Mycobacterium smegmatis
+NC_021860	Lactococcus lactis subsp. cremoris
+NC_021861	Lactococcus lactis SMQ-1212
+NC_021863	Staphylococcus aureus
+NC_022052	Mycobacterium smegmatis
+NC_022053	Mycobacterium smegmatis
+NC_022054	Mycobacterium smegmatis
+NC_022055	Mycobacterium smegmatis
+NC_022056	Mycobacterium smegmatis
+NC_022057	Mycobacterium smegmatis
+NC_022058	Mycobacterium smegmatis
+NC_022059	Mycobacterium smegmatis
+NC_022060	Mycobacterium smegmatis
+NC_022061	Mycobacterium smegmatis
+NC_022062	Mycobacterium smegmatis
+NC_022063	Mycobacterium smegmatis
+NC_022064	Mycobacterium smegmatis
+NC_022065	Mycobacterium smegmatis
+NC_022066	Mycobacterium smegmatis
+NC_022067	Mycobacterium smegmatis
+NC_022068	Mycobacterium smegmatis
+NC_022069	Mycobacterium smegmatis
+NC_022070	Mycobacterium smegmatis
+NC_022071	Mycobacterium smegmatis
+NC_022085	Mycobacterium smegmatis
+NC_022086	Mycobacterium smegmatis
+NC_022087	Mycobacterium smegmatis
+NC_022088	Bacillus thuringiensis
+NC_022090	Staphylococcus aureus
+NC_022091	Pseudomonas aeruginosa PA01
+NC_022094	Bacillus anthracis
+NC_022323	Escherichia coli O157:H7
+NC_022324	Mycobacterium smegmatis
+NC_022325	Mycobacterium smegmatis
+NC_022326	Mycobacterium smegmatis
+NC_022327	Mycobacterium smegmatis
+NC_022328	Mycobacterium smegmatis
+NC_022329	Mycobacterium smegmatis
+NC_022330	Mycobacterium smegmatis
+NC_022331	Mycobacterium smegmatis
+NC_022746	Pseudomonas aeruginosa
+NC_022747	Vibrio cholerae
+NC_022749	Shigella flexneri
+NC_022750	Escherichia coli O157:H7
+NC_022752	Salmonella enterica
+NC_022753	Mycobacterium smegmatis
+NC_022754	Salmonella enterica
+NC_022758	Staphylococcus aureus
+NC_022761	Bacillus subtilis
+NC_022763	Bacillus thuringiensis
+NC_022764	Bacillus megaterium
+NC_022765	Bacillus pumilus
+NC_022766	Bacillus pumilus
+NC_022767	Bacillus megaterium
+NC_022768	Salmonella enterica
+NC_022769	Bacillus thuringiensis
+NC_022770	Bacillus megaterium
+NC_022771	Bacillus subtilis
+NC_022772	Salmonella enterica
+NC_022773	Bacillus pumilus
+NC_022774	Bacillus megaterium
+NC_022776	Streptococcus thermophilus
+NC_022791	Streptococcus pneumoniae
+NC_022914	Staphylococcus saprophyticus
+NC_022916	Burkholderia cenocepacia
+NC_022918	Staphylococcus aureus
+NC_022920	Staphylococcus aureus
+NC_022965	Mycobacterium smegmatis
+NC_022966	Pseudomonas aeruginosa
+NC_022967	Pseudomonas aeruginosa
+NC_022968	Escherichia coli
+NC_022969	Mycobacterium smegmatis
+NC_022970	Pseudomonas aeruginosa
+NC_022971	Pseudomonas aeruginosa
+NC_022973	Mycobacterium smegmatis
+NC_022974	Pseudomonas aeruginosa
+NC_022975	Mycobacterium smegmatis
+NC_022976	Mycobacterium smegmatis
+NC_022977	Mycobacterium smegmatis
+NC_022979	Mycobacterium smegmatis
+NC_022981	Mycobacterium smegmatis
+NC_022983	Mycobacterium smegmatis
+NC_022984	Mycobacterium smegmatis
+NC_022985	Mycobacterium smegmatis
+NC_022986	Pseudomonas aeruginosa
+NC_022988	Mycobacterium smegmatis
+NC_023005	Pseudomonas plecoglossicida
+NC_023006	Pseudomonas plecoglossicida
+NC_023007	Bacillus anthracis
+NC_023009	Staphylococcus aureus
+NC_023498	Mycobacterium
+NC_023499	Staphylococcus aureus
+NC_023500	Staphylococcus aureus
+NC_023501	Bacillus cereus
+NC_023503	Streptococcus thermophilus
+NC_023550	Staphylococcus aureus
+NC_023552	Mycobacterium
+NC_023553	Mycobacterium
+NC_023554	Mycobacterium
+NC_023562	Mycobacterium
+NC_023563	Mycobacterium
+NC_023564	Mycobacterium
+NC_023565	Mycobacterium
+NC_023568	Vibrio harveyi
+NC_023570	Acinetobacter baumannii
+NC_023572	Mycobacterium
+NC_023573	Staphylococcus aureus
+NC_023575	Pseudomonas aeruginosa
+NC_023577	Mycobacterium
+NC_023578	Mycobacterium
+NC_023580	Mycobacterium
+NC_023581	Acinetobacter baumannii
+NC_023582	Staphylococcus epidermidis
+NC_023583	Pseudomonas aeruginosa
+NC_023584	Synechococcus sp. WH7803
+NC_023587	Synechococcus sp. WH7803
+NC_023589	Shigella boydii
+NC_023590	Acinetobacter baumannii
+NC_023591	Mycobacterium
+NC_023593	Escherichia coli
+NC_023596	Pseudomonas aeruginosa
+NC_023597	Mycobacterium smegmatis
+NC_023599	Bacillus thuringiensis
+NC_023600	Mycobacterium smegmatis
+NC_023601	Pseudomonas syringae
+NC_023602	Mycobacterium smegmatis
+NC_023603	Mycobacterium
+NC_023604	Mycobacterium smegmatis
+NC_023605	Vibrio alginolyticus
+NC_023606	Mycobacterium smegmatis
+NC_023607	Mycobacterium smegmatis
+NC_023608	Salmonella enterica
+NC_023609	Mycobacterium
+NC_023686	Mycobacterium smegmatis
+NC_023687	Mycobacterium smegmatis
+NC_023689	Mycobacterium smegmatis
+NC_023690	Mycobacterium smegmatis
+NC_023691	Mycobacterium smegmatis
+NC_023692	Mycobacterium smegmatis
+NC_023695	Mycobacterium smegmatis
+NC_023696	Mycobacterium smegmatis
+NC_023697	Mycobacterium smegmatis
+NC_023698	Mycobacterium
+NC_023699	Mycobacterium smegmatis
+NC_023700	Pseudomonas aeruginosa
+NC_023701	Mycobacterium smegmatis
+NC_023702	Mycobacterium smegmatis
+NC_023703	Mycobacterium smegmatis
+NC_023704	Mycobacterium smegmatis
+NC_023705	Mycobacterium smegmatis
+NC_023707	Mycobacterium smegmatis
+NC_023708	Mycobacterium smegmatis
+NC_023709	Mycobacterium smegmatis
+NC_023710	Mycobacterium smegmatis
+NC_023711	Mycobacterium smegmatis
+NC_023712	Mycobacterium smegmatis
+NC_023713	Mycobacterium smegmatis
+NC_023714	Mycobacterium smegmatis
+NC_023715	Yersinia pestis
+NC_023716	Mycobacterium smegmatis
+NC_023718	Pseudomonas tolaasii
+NC_023719	Bacillus megaterium
+NC_023720	Mycobacterium smegmatis
+NC_023721	Mycobacterium smegmatis
+NC_023723	Mycobacterium smegmatis
+NC_023724	Mycobacterium smegmatis
+NC_023725	Mycobacterium smegmatis
+NC_023726	Mycobacterium smegmatis
+NC_023727	Mycobacterium smegmatis
+NC_023728	Mycobacterium smegmatis
+NC_023729	Mycobacterium smegmatis
+NC_023730	Mycobacterium smegmatis
+NC_023731	Mycobacterium smegmatis
+NC_023732	Mycobacterium smegmatis
+NC_023733	Mycobacterium smegmatis
+NC_023737	Mycobacterium smegmatis
+NC_023738	Mycobacterium smegmatis
+NC_023739	Mycobacterium smegmatis
+NC_023740	Mycobacterium smegmatis
+NC_023741	Mycobacterium smegmatis
+NC_023742	Mycobacterium smegmatis
+NC_023743	Escherichia coli
+NC_023744	Mycobacterium tuberculosis
+NC_023745	Mycobacterium smegmatis
+NC_023746	Mycobacterium smegmatis
+NC_023747	Mycobacterium smegmatis
+NC_023748	Mycobacterium smegmatis
+NC_023856	Salmonella enterica
+NC_023862	Mycobacterium smegmatis
+NC_023863	Vibrio anguillarum
+NC_024122	Salmonella enterica
+NC_024123	Pseudomonas aeruginosa
+NC_024124	Escherichia coli
+NC_024125	Escherichia coli
+NC_024134	Escherichia coli
+NC_024135	Mycobacterium smegmatis
+NC_024136	Mycobacterium smegmatis
+NC_024137	Bacillus cereus
+NC_024138	Mycobacterium smegmatis
+NC_024139	Escherichia coli
+NC_024140	Pseudomonas aeruginosa
+NC_024141	Mycobacterium smegmatis
+NC_024143	Mycobacterium smegmatis
+NC_024144	Clostridium difficile
+NC_024145	Mycobacterium smegmatis
+NC_024146	Escherichia coli
+NC_024147	Mycobacterium smegmatis
+NC_024148	Mycobacterium smegmatis
+NC_024203	Lactococcus lactis [Germany]
+NC_024204	Salmonella enterica
+NC_024205	Bacillus thuringiensis
+NC_024207	Bacillus thuringiensis
+NC_024208	Lactococcus lactis [Germany]
+NC_024209	Mycobacterium smegmatis
+NC_024210	Escherichia coli
+NC_024211	Bacillus thuringiensis
+NC_024213	Bacillus thuringiensis
+NC_024214	Lactococcus lactis [Germany]
+NC_024215	Lactococcus lactis [Germany]
+NC_024216	Bacillus thuringiensis
+NC_024330	Pseudomonas aeruginosa
+NC_024355	Staphylococcus epidermidis
+NC_024357	Streptococcus pneumoniae
+NC_024358	Anabaena variabilis
+NC_024361	Streptococcus pneumoniae
+NC_024362	Pseudomonas syringae
+NC_024363	Mycobacterium smegmatis
+NC_024365	Pseudomonas syringae
+NC_024366	Mycobacterium smegmatis
+NC_024368	Mycobacterium smegmatis
+NC_024369	Vibrio cholerae
+NC_024370	Streptococcus pneumoniae
+NC_024371	Mycobacterium smegmatis
+NC_024379	Escherichia coli O157:H7
+NC_024381	Pseudomonas aeruginosa
+NC_024391	Staphylococcus aureus
+NC_024782	Pseudomonas aeruginosa PA14
+NC_024783	Escherichia coli [bovine]
+NC_024784	Escherichia coli O157:H7
+NC_024785	Acinetobacter baumannii
+NC_024786	Escherichia coli [avian]
+NC_024788	Bacillus thuringiensis
+NC_024789	Escherichia coli O157:H7
+NC_024790	Escherichia coli
+NC_024791	Vibrio cholerae
+NC_024792	Bacillus thuringiensis
+NC_024793	Escherichia coli O157:H7
+NC_024794	Escherichia coli
+NC_001825	Streptococcus pneumoniae
+NC_001890	Escherichia coli
+NC_004171	Pseudomonas syringae
+NC_004175	Pseudomonas syringae
+NC_004301	Escherichia coli
+NC_005879	Vibrio cholerae
+NC_005891	Vibrio cholerae
+NC_007581	Clostridium botulinum
+NC_010363	Lactococcus lactis [Australia]
+NC_010821	Pseudomonas chlororaphis
+NC_012092	Pseudomonas syringae
+NC_013021	Prochlorococcus sp. MIT9313
+NC_014457	Clostridium tyrobutyricum
+NC_015209	Vibrio cholerae
+NC_015721	Bdellovibrio bacteriovorus
+NC_019515	Bacillus cereus
+NC_019541	Acinetobacter baumannii
+NC_019924	Clostridium sporogenes
+NC_020850	Vibrio parahaemolyticus
+NC_021561	Vibrio sp. YD38
+NC_021868	Streptococcus pneumoniae
+NC_022096	Pseudomonas aeruginosa PA01

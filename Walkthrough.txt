@@ -1,0 +1,206 @@
+This walkthrough is intended as a quick guide for recreating analyses in the manuscript, "Gene networks provide a high-resolution view of bacteriophage ecology" by Jason W Shapiro and Catherine Putonti. It can also be adapted to analyze additional datasets. It generally assumes that the reader is comfortable with R and creating/navigating their own directory structures.
+
+----------------------------------------------------------------------------------------
+Step One: Gather data and prepare the concatenated FAA file 
+Note: this step is already completed and available as "allphagefaa.fa" in "Input Data." 
+a) Download all FAA files associated with the accessions in phagehostdatasummary.txt. Sequences can also be downloaded in gbk format and converted to FAA format using the R function gbk2faa() (provided in GeneNetworkRscripts.r). 
+b) Relabel each gene identifier using the genome accession and an index, for downstream convenience. E.g. Gene i of phage T4 would be labeled NC\_000866\_i. This can be done quickly in R if each FAA file is saved in the same directory and if each is named in the format "accession.faa," where the filename matches the genome accession. First create a new output directory to contain the relabeled files ('FAArelab' below). Then, move to the directory with the original FAA files and use the following (or equivalent): 
+
+	filelist=list.files()
+	for(i in 1:length(filelist))
+	{
+		faaseq=readLines(filelist[i])				#reads in file i    
+		genacc=strsplit(filelist[i],'.faa')[[1]]		#extracts the genome accession from the filename
+		genepos=grep(">",faaseq)					#finds the start position of each gene in the FAA file
+		faaseq[genepos]=paste(">",genacc,'_',c(1:length(genepos)),sep='')	#relabels each gene identifier in the format ">accession_n" where n stands in for the order of the genes.
+		write.table(faaseq,paste("../FAArelab/",filelist[i],sep=''),row.names=F,col.names=F,quote=F)	#writes file using original name to FAArelab directory
+	} 
+
+c) concatenate the relabeled FAA files into one FASTA file. To avoid any escape character issues from using 'cat *.faa' in the command line, I prefer to do this in R. While in the FAArelab directory:   
+
+	filelist=list.files()
+	allseq=character()
+	for(i in 1:length(filelist))
+	{
+		allseq=c(allseq,readLines(filelist[i]))
+	}
+	write.table(allseq,'../allseq.fa',row.names=F,col.names=F,quote=F)	#writes the new file to the parent directory containing FAArelab
+																		#Note: allseq can also be built as you go during step (b)
+
+Step Two: Cluster the protein sequences using usearch with the function cluster_fast.
+The main parameter to specify here is the ID threshold used by usearch. Because protein sequences are being clustered, there is no need to specify how usearch should treat the strand direction. We ran this step using IDs from 0.20 (20%) to 0.95 (95%) and ultimately report results from 0.35, shown in the example below. A sample line of code would be:
+	
+	'usearch -cluster_fast allseq.fa -id 0.35 -clusters ./phageuclust35/pc_'
+
+The option '-clusters' tells usearch to output a separate fasta file for each of the clusters it infers. By default, the first sequence in each file is the centroid of that cluster. We used 'phageuclust35' as the output directory and 'pc_' provides a prefix that will label each cluster, starting with pc_0.
+
+Sample output "phageuclust35.tar.gz" is available via figshare at https://figshare.com/s/cba533ddfd55e9cf75a8.
+
+Step Three: Convert the set of protein clusters into a genome-gene presence-absence matrix
+Because each gene is relabeled to contain the accession of its source genome, it is straightforward to build a matrix of genome-gene associations by reading in each cluster output file. The function clust2pres() (provided in clust2pres.r) takes in the cluster directory and a list of the original genome accessions and outputs this matrix. (Note: clust2pres() relies on sparse matrices and requires the package 'Matrix'.) By default, it excludes any clusters with only 1 or 2 sequences (the option 'trim = T' in the function arguments), but these can be included by adding 'trim = F' when running the function. There are a number of ways to prepare the list of phage accessions. One quick way is to save them as a single column text file and then read this in separately. We did this using a file called 'phagelist.txt'. The function is then run while in the cluster directory as:
+
+	phagelist=readLines('phagelist.txt')
+	pres35=clust2pres(getwd(),phagelist)
+
+Step Four: Build network output files using igraph
+a) Create adjacency matrices:
+The matrix pres35 has rows corresponding to genomes, and columns corresponding to the clusters of homologous genes identified using usearch. Each entry {i,j} is either a 1 if gene j is in genome i, or a 0 otherwise. It therefore represents the adjacency matrix of a bipartite graph between genomes and genes. This is easily converted to an adjacency matrix connecting genomes if they share a gene or genes if they are members of the same genome by using matrix multiplication as follows:
+
+	padj=sign(pres35%*%t(pres35)
+	gadj=sign(t(pres35)%*%pres35)
+
+where padj is the genome-level adjacency matrix and gadj is the gene-level adjacency matrix. The binary operator '%*%' performs matrix multiplication, and t() creates the matrix transpose. Without using the sign() function, these products would instead provide weighted adjacency matrices where the entries for padj, for instance, would be the number of genes shared between two genomes. While there may be value in using a weighted approach in future work, we elected to use the sign() function to create unweighted adjacency matrices to simplify the analyses.
+
+b) create graphs using igraph:
+The following step requires the package igraph. Note: there are multiple synonymous functions provided in igraph that can carry out this step:
+
+	pnet=graph_from_adjacency_matrix(padj)	
+	gnet=graph_from_adjacency_matrix(gadj)
+
+where pnet and gnet are the igraph graph objects for the genome and gene-level networks.
+
+c) create and export edgelists:
+	pedge=as_edgelist(pnet)
+	gedge=as_edgelist(gnet)
+	write.table(pedge,'pedge.abc',row.names=F,col.names=F,quote=F,sep='\t')		#the '.abc' file extension is used to match the syntax found in the MCL protocol on micans.org in later steps.
+	write.table(gedge,'gedge.abc',row.names=F,col.names=F,quote=F,sep='\t')
+	
+Note: these edgelists will contain both the edge from "node A" to "node B" and from "node B" to "node A," which is necessary so MCL can interpret the graph as undirected, but it roughly doubles the memory required to draw the network using Cytoscape. Smaller, undirected edgelists can be prepared by repeating 4b above but changing "padj" to "padj*upper.tri(padj)" and similarly for gadj. The function upper.tri() creates an upper-triangular matrix of 1s and 0s of dimensions matching the input matrix, and including this step removes the reciprocal edges from the edgelist. 
+
+Step Five: Find graphical clusters using MCL
+We followed the first Protocol from micans.org for using MCL. One example is provided below using an inflation parameter of 2 and the genome level network edgelist, pedge.abc. This was repeated as described in the text for different inflation parameters and for the gene network. (This code is run from a UNIX command line, not within R.):
+
+	mcxload -abc pedge.abc --stream-mirror -write-tab pedge.tab -o pedge.mci
+	mcl pedge.mci -I 2 -o pedge.I20
+	mcxdump -icl pedge.I20 -tabr pedge.tab -o pedge.I20.dump
+
+The output file "pedge.I20.dump" will then be used in remaining steps for analysis using R.
+
+Step Six: Calculate and Maximize Mutual Information between MCL clusters and Host associations (all functions contained in MIfunctions.r)
+Phage-host associations are provided at the species and genus levels in the files, phostspec.txt and phostgen.txt. These are two-column text files without headers, where the first column is the genome accession of a phage, and the second column is the species (with additional strain level information when available) of the lab host or the genus of that host. In order to calculate mutual information, these host associations are connected to MCL clusters in a matrix format using either the function chmake() or chmakeg() for the genome and gene-level networks, respectively. In the genome network, this matrix has rows corresponding to MCL clusters and columns corresponding to hosts. Each entry is the sum of the number of times each host appears within that MCL cluster. In the gene network, the matrix is similarly-structured, but the sum includes the host associated with each individual homolog associated with each node within each MCL cluster.
+
+a) create the cluster-host matrices (example for gene network provided). Note: the function chmakeg() assumes the MCL output has already been read into R and formatted appropriately. The path to the cluster file can also be used as input, in which case the second line of the function, beginning with "#gmcl=strsplit(..." should be uncommented, and the 3rd line should be commented instead. This example leaves the function commented as in the file provided.
+
+	cluster20=strsplit(readLines('gedge35.I20.dump'),'\t')		#the original "dump" file provides 1 line for each cluster, with tabs separating each gene in the cluster. 
+																#Using strsplit here convert this to a list object where each entry is a character vector of gene identifiers.
+	phostgen=as.matrix(read.table('phostgen.txt',header=F,sep='\t'))		#reads in the desired phage-host association matrix. Converts to matrix format, rather than keeping as a data.frame object.
+	chmatg20=chmakeg(cluster=cluster20, hostmat=phostgen, presmat=pres35)	#Note that this function uses the same genome-gene presence-absence matrix as in step 4a above.
+
+b) Calculate the mutual information between clusters and hosts using the cluster-host matrix as input. 
+The function micalc() will output the mutual information between clusters and hosts by running micalc(chmatg20). This function will return an error, however, if any of the rows or columns contain only 0s. This can be corrected (or prevented) by removing any all-zero rows and columns with the function matclean(). 
+
+c) Maximize mutual information between clusters and hosts using mimax()
+The mimax() function takes as input the cluster-host matrix, the original genome-gene presence-absence matrix, the MCL cluster output (after processing in step 6a), and the number of iterations to run the algorithm. E.g.
+
+	mimat20=mimax(chmat=chmatg20, origpres=pres35, gmcl=cluster20, nsteps=7000)
+
+In this example, we would run mimax for 7000 iterations, because that was observed to be sufficient (for our data) to achieve a stable mutual information. mimax() returns results as a list object, with:
+	mat = the reduced cluster-host matrix following all mimax iterations
+	val = the time series of how mutual information changed over the course of running mimax
+	pres = the reduced genome-gene presence-absence matrix, containing only those genes present in the reduced set of MCL clusters following mimax
+	genelist = a character vector of the reduced set of genes following mimax (redundant with the column names of the output from 'pres' above).
+
+Step 7: Generate host predictions from a cluster-host matrix (when testing phage already in the network)
+This step can be carried out using any cluster-host matrix as input. In the accompanying manuscript, we did this with the original cluster-host matrix and also following mimax.
+The function hostpred() (found in hostpred.r) identifies the MCL clusters corresponding to the genes in a single phage's genome and calculates
+a score for each host based on how often that host is associated with the associated MCL clusters in the rest of the network. When testing predictions
+for phage already contained in the network, it takes a given phage's accession as input, along with a matrix called "mclmat" where the rows are numbered ids
+for each MCL cluster and the columns are the individual genes. 1s indicate that gene j is found inside MCL cluster i. hostpred() also requires the original
+presence-absence matrix, the desired cluster-host matrix, the phage-host association matrix (from what is known a priori). The option "corr = T" 
+is used when testing a phage already contained within the network. This uses the function hostselfcorr() to adjust the resulting host score vector to subtract away 
+the contribution of a phage to its own prediction.
+
+a) Create the MCL-gene matrix, mclmat
+The following syntax will generate an appropriate MCL-gene matrix, mclmat (continuing with the same variables as used in previous steps):
+
+	genelist=unique(unlist(cluster20))			#extracts all gene identifiers from the dataset
+	mclmat=array(0,dim=c(length(cluster20),length(genelist)))	#sets up an empty array
+	colnames(mclmat)=genelist									#sets up column and row names	
+	rownames(mclmat)=paste("mcl",c(1:length(cluster20)),sep="_")
+	for(i in 1:length(cluster20)){mclmat[i,match(cluster20[[i]],genelist)]=1}	#fills in the matrix, iterating through each MCL cluster
+	
+b) Generating a single host prediction (for the first phage, T4, in the "phagelist") at the genus level:
+
+	pred=hostpred(acc=phagelist[1],presmat=mimat$pres,mimat=mimat$mat,mclmat=mclmat,phosts=phostgen,corr=T)	
+	#this will return the vector of scores. To get the host with the highest score, do:
+	bestpred=names(which.max(pred))
+	
+(To generate predictions for every phage in phagelist, we did a simple for loop and stored the host with highest scores for each in a character vector.)
+
+Step 8: Generating predictions for a novel phage genome
+We restricted our test of novel phage to phages outside our original dataset that were already annotated as infecting one of the hosts infected
+by a phage in the network. That said, any phage could presumably be tested with hostpred. In order to test a new phage, its genome should first
+be downloaded in FAA format, if available. If unavailable, gbk2faa() can be used to convert the genbank flatfile into FAA format. This FAA file
+is then blasted using command line blastp against a blast database of the centroid sequence for each cluster in the network. 
+
+a) Create the centroid blast database
+#First build a file with all concatenated centroids. From within the directory containing each of the usearch gene clusters (here 'phageuclust35'):
+	filelist=list.files()
+	allcentroids=character()
+	for(i in 1:length(filelist))
+	{
+		tempseq=readLines(filelist[i])
+		stop=grep(">",tempseq)[2]-1	#grep finds all of the gene positions in the file. The centroid is the first sequence, so this determines where it ends.
+		allcentroids=c(allcentroids,paste('>',filelist[i],sep=''))	#names the centroid sequence by the usearch cluster ID, not by the original gene ID
+		allcentroids=c(allcentroids,tempseq[2:stop])				#fills in the centroid sequence
+	}
+		write.table(allcentroids,'../allcentroids35.fa',row.names=F,col.names=F,quote=F)
+		
+#Use the concatenated centroids to make a local blast database:
+
+	makeblastdb -in allcentroids35.fa -dbtype prot -out ./centroidDB/centroidDB -parse_seqids
+
+b) Blast each novel phage FAA file against the centroidDB using blastp. If all FAA files are contained in the same folder, this is readily done with a unix for loop
+#Create a directory to contain blast output. Then navigate to directory containing each of the FAA files. The following will return csv output for each blast
+
+		for file in $( ls )
+		do
+			blastp -query $file -db ../centroidDB/centroidDB -out ../phagesamp500blast/$file.blast -outfmt 11
+		done
+		
+c) Use the unique blast hits for each phage to create a row vector to append to the genome-gene presence-absence matrix. This matrix is then
+in a format that can be run with the original hostpred() function. The following is a block of R code that will return predictions for every novel
+phage in our sample of 500 that could be tested (182 of the original 500 downloaded had hosts that were present in our existing network):
+
+#Starting from within the directory of blast output:
+	blastlist=list.files()
+	blastaccs=unlist(strsplit(blastlist,'.faa.blast'))	#recover original accession IDs for the phage genome from the blast output filename
+	genelist=colnames(mimat$pres)						#restricts analysis to the genes still present after running mimax
+	predvec=character()
+	for(i in 1:length(blastlist))
+	{
+		tempblast=as.matrix(read.csv(blastlist[i],header=F))	#reads in the blast results
+		unihits=unique(tempblast[which(tempblast[,1]]<.00001&tempblast[,12]>=50),2])	#returns the unique MCL clusters corresponding to hits meeting maximum E-value and minimum bit score thresholds
+		if(length(unihits)==0){predvec[i]="NA"}		#if there are no hits, the phage contains no genes present in the centroidDB (all of the blast results were insignificant)
+		if(length(unihits)>0)	#If there are hits, then the following is run:
+		{
+			temppres=rbind(mimat$pres,rep(0,length(mimat$pres[1,])))	#a new empty row is added to the presence-absence matrix
+			rownames(temppres)[914]=blastaccs[i]						#it is named according to the new phage's accession
+			gmatch=match(unihits,genelist)								#the unique hits are matched to the list of genes (using usearch ids)
+			if(length(gmatch[! is.na(gmatch)])>0)						#if at least one unique hit corresponds to a gene in the mimax-reduced network, then: 
+			{
+				temppres[914,gmatch[! is.na(gmatch)]]=1					#matching genes are indicated with a 1 in the new row
+				predvec[i]=names(which.max(hostpred(blastaccs[i],temppres,mimat$pres,mclmat,phostgen,corr=F)$host))	#hostpred() is run as normal, using the new phage accession as input and not correcting for self-contribution (since there is none)
+			}
+			if(length(gmatch[! is.na(gmatch)])==0){predvec[i]="NA"}			#if none of the unique hits matches a gene in the mimax-reduced set, then return 'NA'
+		}
+	}
+
+
+##Additional Code used in the Manuscript##
+
+#Determining the ICCC values for a given network and set of MCL clusters.
+The function findICCC() determines the "intracluster clustering coefficient" as described in Lima-Mendez 2008. It is available in the GeneNetworkRscripts.r file.
+
+#Creating a regression plot with confidence intervals with CIplot() (in CIplot.)
+#CIplot() takes as input a two-column matrix without headers, where column 1 corresponds to the x axis, and 2 to the y axis. It then runs and plots
+#a linear regression of y~x including confidence bands set at a given level (using the level argument).  x and y labels can be specified with xlabel and ylabel options. 
+#by default, it just creates a plot, not an output file, but if out=T, it will create a pdf output with filename set by outname.
+
+	
+	
+
+
+
+
+

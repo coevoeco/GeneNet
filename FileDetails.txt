@@ -1,0 +1,33 @@
+The following is a brief summary of the files available in this repository and are related to the manuscript, "Gene networks provide a high-resolution view of bacteriophage ecology" by Jason W Shapiro and Catherine Putonti.
+
+Additional information on how to use the data and code provided is described in the file "Walkthrough.txt."
+
+Directories in "Output Data":
+centroids35DB: contains a protein blast database of all centroid sequences of the phage FAA file clustered with usearch at 35% identity
+edgelists: contains all edgelists in two-column format. All files are text files; files with the extension '.abc' were used as input for MCL-edge
+	-files with the prefix 'gedge35' pertain to gene-level networks
+	-files with the prefix 'pedge35' pertain to genome-level networks
+	-the suffix 'addedgeN' means that N random edges were added per node to generate the given edgelist
+	-the suffix 'droptop' means that the top 3% connected nodes (by degree) were dropped to test the effect on clustering
+	-the suffix 'unique' means that only one direct of each edge ('node A' to 'node B' is written to the file)
+MCL_genes: contains the result file ('.dump') from running MCL on the associated gene network
+	-the value 'I##' refers to the inflation factor (multiplied by 10) used to generate each MCL clustering. The extension .dump is used as reference to the step in MCL-edge
+	-other prefixes and suffixes as described for 'edgelists'
+MCL_genomes: contains the result file ('.dump') from running MCL on the associated genome network
+	-prefixes and suffixes as defined in 'edgelists' and 'MCL_genes'
+mimax_output: result files from running the mimax algorithm 10 times with the set of clusters 'gedge35_addedge5.I150.dump' (in MCL_genes folder)
+	-the prefix 'mimat' defines files with the final cluster-host matrix after mimax
+	-the prefix 'mipres' provides the final genome-gene presence/absence matrix after mimax
+	-the prefix 'mival' provides the vector of mutual information scores after each iteration of mimax
+	-the numerical suffix refers to the replicate of running mimax on the same set of MCL clusters
+
+Files in "Input Data":
+allphage.faa: FAA file with all phage genomes concatenated with headers in the format "Accession_N" where "Accession" refers to the phage genome accession in GenBank, and "N" refers to the Nth gene in that genome.
+phagehostdatasummary.txt: tab-delimited table with headers 'Phage Accession', 'Host Species', 'Host Genus', 'Used in analysis' (1 = yes, 0 = no), 'Phage Family', and 'Dataset' (Network = part of original network; Random Sample = part of random test)
+phagehosts_genus.txt: tab-delimited table with phage genome accession in the first column, and host genus in 2nd. No headers.
+phagehosts_species.txt: as phagehosts_genus.txt but the 2nd column contains hosts defined at the species level.
+phagelist.txt: list of phage accessions (includes all 945 in the allphage.faa file, not just those remaining after usearch)
+
+Files in "R Scripts":
+CIplot.r: R script for generating a regression plot with confidence intervals
+GeneNetworkRscripts.r: set of R scripts used in the study. Usage is explained in "NetworkMethodsSummary.txt" and briefly described in the file itself.
