@@ -1,0 +1,78 @@
+name,refeseq_rep
+Acinetobacter baumannii,NZ_CP009257
+Acinetobacter johnsonii,NZ_CP010350
+Anabaena variabilis,NC_007413
+Bacillus anthracis,NC_003997
+Bacillus cereus,NC_004722
+Bacillus megaterium,NC_014103
+Bacillus pumilus,NC_009848
+Bacillus subtilis,NC_000964
+Bacillus thuringiensis,NC_005957
+Bacillus weihenstephanensis,NC_010184
+Bdellovibrio bacteriovorus,NZ_CP002190
+Burkholderia ambifaria,NC_010551
+Burkholderia cenocepacia,NC_011000
+Burkholderia cepacia,NZ_CP012983
+Burkholderia pseudomallei,NC_006350
+Burkholderia pyrrocinia strain LMG 21824,NZ_CP01150x
+Burkholderia thailandensis,NC_007651
+Chlamydia pecorum,NC_015408
+Chlamydia psittaci,NC_017287
+Chlamydophila abortus,NC_004552
+Clostridium difficile,NC_009089
+Clostridium perfringens,NC_008261
+Escherichia coli,NC_000913
+Escherichia coli O157:H7,NC_002695
+Lactococcus lactis subsp. cremoris MG1363,NC_009004
+Lactococcus lactis subsp. cremoris NZ9000,NC_017949
+Lactococcus lactis subsp. cremoris UC509,NC_019435
+Lactococcus lactis subsp. lactis IL1403,NC_002662
+Microcystis aeruginosa,NC_010296
+Mycobacterium avium subsp. paratuberculosis,NC_002944
+Mycobacterium smegmatis,NC_008596
+Mycobacterium tuberculosis,NC_000962
+Prochlorococcus marinus SS120,NC_005042
+Prochlorococcus sp. MED4,NC_005072
+Prochlorococcus sp. MIT9303,NC_008820
+Prochlorococcus sp. MIT9312,NC_007577
+Prochlorococcus sp. MIT9515,NC_008817
+Prochlorococcus sp. NATL1A,NC_008819
+Prochlorococcus sp. NATL2A,NC_007335
+Pseudomonas aeruginosa PA14,NC_008463
+Pseudomonas aeruginosa PAO1,NC_002516
+Pseudomonas fluorescens,NC_007492
+Pseudomonas plecoglossicida,NZ_CP010359
+Pseudomonas putida,NC_002947
+Pseudomonas syringae,NC_007005
+Salmonella enterica,NC_003197
+Shigella boydii,NC_007613
+Shigella flexneri,NC_004337
+Shigella sonnei,NC_007384
+Staphylococcus aureus,NC_007795
+Staphylococcus capitis,NZ_CP007601
+Staphylococcus epidermidis,NC_004461
+Staphylococcus pasteuri,NC_022737
+Staphylococcus saprophyticus,NC_007350
+Streptococcus dysgalactiae,NC_019042
+Streptococcus equi,NC_012470
+Streptococcus gordonii,NC_009785
+Streptococcus mitis,NC_013853
+Streptococcus mutans,NC_004350
+Streptococcus oralis,NC_015291
+Streptococcus pneumoniae,NC_003098
+Streptococcus pyogenes,NC_002737
+Streptococcus suis,NC_012926
+Streptococcus thermophilus,NC_006448
+Synechococcus sp. WH7803,NC_009481
+Synechococcus sp. WH8102,NC_005070
+Vibrio alginolyticus,NC_0223xx
+Vibrio anguillarum,NC_01563x
+Vibrio cholerae,NC_00250x
+Vibrio fischeri,NC_00684x
+Vibrio harveyi,NZ_CP00946x
+Vibrio natriegens,NZ_CP01634x
+Vibrio parahaemolyticus,NC_00460x
+Vibrio splendidus,NC_0117xx
+Vibrio vulnificus,NC_0051xx
+Yersinia enterocolitica,NC_008800
+Yersinia pestis,NC_003143

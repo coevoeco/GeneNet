@@ -1,6 +1,7 @@
 ## Description:
 This repository contains scripts and sample code for creating and analyzing gene-level networks of phage diversity, as in our recent preprint, "Gene networks provide a high-resolution view of bacteriophage ecology," available via [biorxiv](http://www.biorxiv.org/content/early/2017/06/11/148668).  
 A detailed guide (Walkthrough.txt) is available for download with instructions for going from genome sequences for a collection of phage genomes to building networks and generating host predictions for novel genomes. It can be used to recreate the analysis in our manuscript and can also be applied to new data. Please refer to the folders "R Scripts" for necessary code and to "Output Data" for examples of output. Necessary input files are contained in "Input Data."    
+(Updated 12/21/2017 with extended walkthrough and new code for comparing gene network topology to the phylogenetic relatedness of phage hosts.)
 
 ## Required Software 
 This code is intended to be run in a UNIX environment and requires:  

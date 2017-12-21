@@ -2,7 +2,7 @@ The following is a brief summary of the files available in this repository and a
 
 Additional information on how to use the data and code provided is described in the file "Walkthrough.txt."
 
-Directories in "Output Data":
+Directories and files in "Output Data":
 centroids35DB: contains a protein blast database of all centroid sequences of the phage FAA file clustered with usearch at 35% identity
 edgelists: contains all edgelists in two-column format. All files are text files; files with the extension '.abc' were used as input for MCL-edge
 	-files with the prefix 'gedge35' pertain to gene-level networks
@@ -20,14 +20,22 @@ mimax_output: result files from running the mimax algorithm 10 times with the se
 	-the prefix 'mipres' provides the final genome-gene presence/absence matrix after mimax
 	-the prefix 'mival' provides the vector of mutual information scores after each iteration of mimax
 	-the numerical suffix refers to the replicate of running mimax on the same set of MCL clusters
+genustree.tree: Newick format of genus-level tree of phage hosts
 
 Files in "Input Data":
+aligncat.fa: Concatenated alignments of single-copy marker genes across representative host genomes associated with phages in the dataset.
 allphage.faa: FAA file with all phage genomes concatenated with headers in the format "Accession_N" where "Accession" refers to the phage genome accession in GenBank, and "N" refers to the Nth gene in that genome.
+hostspectree.tree: species-level tree of representative hosts, labeled by host GenBank accession
+markerDB.tar.gz: compressed directory of single-copy bacterial gene BLAST database
+MuscleRelabel.tar.gz: compressed directory of MUSCLE alignment results, relabeled with just host genome accessions. Files named for the bacterial genes.	
 phagehostdatasummary.txt: tab-delimited table with headers 'Phage Accession', 'Host Species', 'Host Genus', 'Used in analysis' (1 = yes, 0 = no), 'Phage Family', and 'Dataset' (Network = part of original network; Random Sample = part of random test)
 phagehosts_genus.txt: tab-delimited table with phage genome accession in the first column, and host genus in 2nd. No headers.
 phagehosts_species.txt: as phagehosts_genus.txt but the 2nd column contains hosts defined at the species level.
+phagehosttable.txt: supplementary table (not used in Walkthrough) with phage accession, host strain name, and representative host accession
 phagelist.txt: list of phage accessions (includes all 945 in the allphage.faa file, not just those remaining after usearch)
-
+	
 Files in "R Scripts":
+alignpaste.r: script for concatenating alignments
 CIplot.r: R script for generating a regression plot with confidence intervals
 GeneNetworkRscripts.r: set of R scripts used in the study. Usage is explained in "NetworkMethodsSummary.txt" and briefly described in the file itself.
+hostassign.r: set of functions for predicting phage host information and for creating a vector of host associations for each phage gene or genome

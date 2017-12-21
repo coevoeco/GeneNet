@@ -1,4 +1,4 @@
-This walkthrough is intended as a quick guide for recreating analyses in the manuscript, "Gene networks provide a high-resolution view of bacteriophage ecology" by Jason W Shapiro and Catherine Putonti. It can also be adapted to analyze additional datasets. It generally assumes that the reader is comfortable with R and creating/navigating their own directory structures.
+This walkthrough is intended as a quick guide for recreating analyses in the manuscript, "Gene networks provide a high-resolution view of bacteriophage ecology" by Jason W Shapiro and Catherine Putonti. It can also be adapted to analyze additional datasets. It generally assumes that the reader is comfortable with R and creating/navigating their own directory structures. (Note: this walkthrough was updated on 12/21/2017 with a new section for comparing phage host relatedeness to gene network topology. See Part Two: Comparing Gene Network Topology to Host Relatedenss.)
 
 ----------------------------------------------------------------------------------------
 Step One: Gather data and prepare the concatenated FAA file 
@@ -100,7 +100,7 @@ In this example, we would run mimax for 7000 iterations, because that was observ
 	pres = the reduced genome-gene presence-absence matrix, containing only those genes present in the reduced set of MCL clusters following mimax
 	genelist = a character vector of the reduced set of genes following mimax (redundant with the column names of the output from 'pres' above).
 
-Step 7: Generate host predictions from a cluster-host matrix (when testing phage already in the network)
+Step Seven: Generate host predictions from a cluster-host matrix (when testing phage already in the network)
 This step can be carried out using any cluster-host matrix as input. In the accompanying manuscript, we did this with the original cluster-host matrix and also following mimax.
 The function hostpred() (found in hostpred.r) identifies the MCL clusters corresponding to the genes in a single phage's genome and calculates
 a score for each host based on how often that host is associated with the associated MCL clusters in the rest of the network. When testing predictions
@@ -197,10 +197,184 @@ The function findICCC() determines the "intracluster clustering coefficient" as 
 #a linear regression of y~x including confidence bands set at a given level (using the level argument).  x and y labels can be specified with xlabel and ylabel options. 
 #by default, it just creates a plot, not an output file, but if out=T, it will create a pdf output with filename set by outname.
 
+----------------------------------------------------------------------------------------
+Part Two: Comparing Gene Network Topology to Host Relatedenss
+
+In community ecology, MPD stands for "mean phylogenetic distance" between all pairs of taxa observed in a community and is a measure of diversity that accounts for the relatedness among species and can also be adjusted to account for relative abundances. In the example (and associated manuscript), we calculate MPD using the function mpd() from the R package 'picante' with the option abundance.weighted=TRUE. As inputs, we provide a genus-level tree for the bacterial hosts associated with the phage genomes, and a data matrix where the rows are either phage genes or genomes (depending on the application) and the columns correspond to the unique host genera associated with the phage genomes. In this part of the walkthrough, we show: 1) How to generate a species-level tree for representative hosts associated with the phage genomes using a set of universal single-copy bacterial genes; 2) how to collapse the nodes of the species-level tree to create a genus-level tree; 3) how to create host association vectors for each phage gene (or genome by summing across genes); and 4) how to combine steps (2) and (3) as inputs for mpd() to estimate the diversity of hosts affiliated with each phage gene using mean phylogenetic distance.
+
+Step One: Building a species-level tree of bacteria
+a) Generate a table of phage-host associations. We previously did this as part of building a phage gene network, but now require representative host sequences to use for building a tree. We chose a representative sequence for each host species, using the exact genome used to isolate phage wherever possible. The file phagehostspecacc.txt (in Input Data) contains the phage accession, host species name, and representative host accession.
+
+b) Create a FASTA file for a set of marker genes and build a BLAST database. We relied on the set of 24 single-copy universal genes previously used in Lang et al (2013). We used the corresponding sequence for each from E. coli (NC_000913) and created a BLAST database using makeblastdb from a FASTA file with each representative sequence. (Available as markerdb.tar.gz in the Input Data directory.)
+
+c) BLAST all host genomes against the marker database to find the genes of interest. We used tblastx and retained the top hit from each genome to each marker gene.
+
+d) Align each marker gene from across hosts. We made a FASTA file for each marker gene containing the associated sequence from each bacterial genome. Each file was then aligned using MUSCLE. (Other aligners such as MAFFT are also suitable.)
+
+e) Concatenate the individual marker gene alignments into a single file. In the example, bacterial accessions are relabeled to remove any marker gene info (e.g. NC_000913_infB --> NC_000913) in each alignment. We then use a script, alignpaste(), to concatenate each alignment (available in R Scripts directory). alignpaste() takes in two FASTA files with the same headers (need not be in the same order) and concatenates the sequences within each header. Used here, one would first navigate to a folder containing all of the individual MUSCLE results (relabeled as above, if necessary, to only contain the genome accession). Then:
+
+	filelist=list.files()			#create a list of each MUSCLE alignment file
+	file1=readLines(filelist[1])		#read in the first alignment file
+	file2=readLines(filelist[2])		#read in the second alignment file
+	alignfile=alignpaste(file1,file2)	#use alignpaste() to concatenate them
+	for(i in 3:length(filelist))		#iterate through remaining alignments and use alignpaste to update the concatenated file
+	{
+		file2=readLines(filelist[i])
+		alignfile=alignpaste(alignfile,file2)
+	}
+
+Then use write.table(alignfile, ... ) to save the concatenated alignment. Ours can be found as aligncat.fa in the Input Data folder.
+
+f) Build a tree from the concatenated alignment. Any preferred software for generating a phylogeny can be used here. We used FastTree, but RAxML or other tools are also suitable.
+
+The end result after step F will be a species-level tree of the representative host sequences, labeled according to the GenBank accession for these bacteria.
+
+Step Two: Build a genus-level tree by collapsing nodes in the species tree that are from the same bacterial genus.
+
+a) Relabel species tree by species name. E.g.:
+
+	require(ape)
+	hostmatch=as.matrix(read.csv("HostIDmatch.csv"))	#read in a file that matches up the host names to the host accessions
+	tree=read.tree("hostspectree.tree")			#read in the tree file
+	tipmatch=match(tree$tip.label,hostmatch[,2])		#match tree tips to the host accessions
+	treerelab=tree						#create a new duplicate tree
+	treerelab$tip.label=hostmatch[tipmatch,1]		#relabel the tips of the duplicate tree by species name, instead of accession
+
+b) Extract the genus from the species name (note: in the example data, we assigned Chlamydophila to Chlamydia for purpose of collapsing nodes)
+
+	tiplabels=treerelab$tip.label
+	labelsplit=strsplit(tiplabels, " ")		#Separates the 'words' in the labels, assuming a single space. Some outputs from earlier steps may use underscores and require "_" to split.
+	tipgenus=character()
+	for(i in 1:length(labelsplit))			#iterate through each tip and record just the first word (i.e. the genus)
+	{
+		tipgenus[i]=labelsplit[[i]][1]
+	}
+
+c) Create genus tree by collapsing nodes with the same genus using the function drop.tip() from the package ape.
+
+	gentree=treerelab	#create a copy of the tree relabeling each tip by the genus
+
+	#To correct for Chlamydophila in the example, run: gentree$tip.label[grep("Chlamydophila",tipgenus)]="Chlamydia"
 	
+	genlist=unique(gentree$tip.label)	#returns unique genus names present
+	for(i in 1:length(genlist))		#iterate through each unique genus, find the species-level labels that match in the original tree, and replace with the genus
+	{
+		gentree$tip.label[grep(genlist[i],gentree$tip.label)]=genlist[i]
+	}
+
+	#It is a good idea to plot the tree at this stage to make note of any misassigned nodes. For instance, one of the Burkholderia's in our sample gets misassigned to Mycobacterium and has an unusually long branch. We manually drop this tip (which corresponds to Burkholderia cepacia, associated with a single phage in the original dataset).
 	
+	#to drop this particular tip, we find it first in the species tree and then drop since tip order is preserved
+	#gentree=drop.tip(gentree,grep("Burkholderia cepacia",treerelab$tip.label))
 
+	#Second, find all of the non-unique tips (there is no need to collapse tips that are unique)
+	temptree=gentree	#create a new temporary variable to modify, rather than modifying the original
+	tipcount=numeric()
+	for(i in 1:length(genlist)){tipcount[i]=length(which(temptree$tip.label==genlist[i]))}	#iterate through each genus, and record how many times it appears in the species tree.
+	tiplist=genlist[tipcount>1]	#record the genera that appear more than once
 
+	#Third, iterate through each of the non-unique tip labels, collapse each, but saving the shared internal node, and relabel this node by the shared genus name
+	for(i in 1:length(tiplist))
+	{
+		tips=grep(tiplist[i],temptree$tip.label)
+		while(length(tips)>1)		#because of tree topology, some genera may need to be collapsed multiple times. The while loop iterates until each is reduced to a single tip. The option "collapse.singles=FALSE" prevents loss of clades.
+		{
+			temptree=drop.tip(temptree,tips,trim.internal=FALSE,collapse.singles=FALSE)
+			numlabel=which(!is.na(as.numeric(temptree$tip.label)))	#finds the new unlabeled tip by finding the one(s) only labeled by branch support
+			temptree$tip.label[numlabel]=tiplist[i]
+			tips=grep(tiplist[i],temptree$tip.label)
+		}
+	}
 
+	genustree=temptree	#when complete, save the final genus tree in its own variable, if desired.
 
+Export the final tree using write.tree(genustree, ... ). For visualization, we used iTOL (itol.embl.de). 
 
+Step Three: Creating host-association vectors
+
+a) for genes
+First, navigate to the directory containing each of the gene clusters. Creating an n x k matrix, where n is the number of phage genes and k the number of unique host genera, requires the phage-host association matrix (phostgen elsewhere in this walkthrough) and the list of phage genes. If the presence-absence matrix (e.g. pres35) is already loaded, the column names give the list of genes.
+
+	genelist=colnames(pres35)	#list of genes in the network (can be recovered in a number of other ways, as well.)
+	unihosts=unique(phostgen[,2])	#list of unique hosts; can also use the tip labels from the tree if loaded.
+	ghostmat=array(0,dim=c(length(genelist),length(unihosts)))	#initialize an empty array
+	colnames(ghostmat)=unihosts	#set the column and row names
+	rownames(ghostmat)=genelist
+
+	for(i in 1:length(genelist))	#iterate through each gene, and record the values output by the function hostvecreturn() (available in R Scripts directory as part of hostassign.r) for each gene
+	{
+		temp=hostvecreturn(genelist[i],phostgen)
+		ghostmat[genelist[i],names(temp)]=as.numeric(temp)
+	}
+
+b) for genomes
+For each genome, the host association vector is the sum of the host association vectors for each of the genes within the genome. This step requires both the presence-absence matrix and the ghostmat array from the prior step.
+
+	phagelist=rownames(pres35)		#set up the empty array to contain the genome host assocation vectors
+	phostmat=array(0,dim=c(length(phagelist),length(unihosts)))
+	colnames(phostmat)=unihosts
+	rownames(phostmat)=phagelist
+
+	for(i in 1:length(phagelist))				#iterate through each phage genome, find the genes it contains, and sum across their entires in the gene host association array
+	{
+		tempgenes=which(pres35[i,]==1)
+		if(length(tempgenes)==1){phostmat[i,]=ghostmat[tempgenes,]}
+		if(length(tempgenes)>1){phostmat[i,]=apply(ghostmat[tempgenes,],2,sum)}
+	}
+
+Step Four: Calculate the MPD for genes and genomes
+
+Calculating MPD is identical and requires either the ghostmat or phostmat arrays (which stand in for the taxon abundance data arrays required by the mpd() function in picante). 
+
+Gene-level example:
+	gmpdvec=mpd(ghostmat, genustree, abundance.weighted=TRUE)	#the option abundance.weighted is required to account for the different relative representation of each host.
+
+Genome-level example:
+	pmpdvec=mpd(phostmat, genustree, abundance.weighted=TRUE)
+
+Step Five: Comparing network topology to host phylogenetic relatedness
+a) Average shortest path and network similarity between all pairs of genes in two phage genomes
+	1) Find all shortest paths between any two genes
+		gdist=distances(gnet)		#using distances() function in igraph and the gnet object calculated previously
+	2) Find all pairwise similarity values for genes in the gene network
+		gsim=similarity(gnet)		#using similarity() function in igraph and the gnet object calculated previously
+
+	3) Find the average shortest path distance or similarity between two genomes
+		pdist=array(0,dim=c(length(phagelist),length(phagelist)))	#set up a symmetric matrix for average distance between genes of any two phage genomes in the dataset
+		colnames(pdist)=rownames(pdist)=phagelist
+		psim=pdist							#set up identical matrix for mean similarity values
+
+		for(i in 2:length(phagelist)){for(j in 1:(i-1))			#iterate over all unique pairs; no need to double-calculate
+		{
+			genes1=which(pres35[i,]==1)
+			genes2=which(pres35[j,]==1)
+			pdist[i,j]=mean(gdist[genes1,genes2])			
+			psim[i,j]=mean(gsim[genes1,genes2])
+
+		}}
+
+		pdist=pdist+t(pdist)	#make the matrices symmetric
+		psim=psim+t(psim)
+
+	Note: Some nodes are unreachable and will have values equal to Inf in gdist, whereas all values in gsim will be in the closed interval [0,1]. Importantly, it is not possible for only some genes in a genome to be unreachable in the gene network by others in another genome. This is a direct result of constructing the network such that two genes are connected if they're found in the same genome. As a simple proof, suppose to the contrary that the distance between gene 1 in genome A to gene 2 in genome B is Inf. Now suppose that gene 3 in genome A is only 2 edges away in the network from gene 4 in genome B. By definition, an edge must connect gene 3 to gene 1 since they are in the same genome, and similarly an edge must connect gene 2 to gene 4. Thus, if gene 3 is 2 edges from gene 4, then gene 1 and gene 2 must be separated by at most 3 edges, not Inf, as assumed. This fact is important, because it means that if the average distance between two genomes is Inf, it is not simply an artifact resulting from one pair of genes being Inf apart. Rather it reflects that none of their genes are in the same connected component of the overall network.
+
+b) Find the phylogenetic distance between all pairs of hosts, and create matrix where each {i, j} is the distance between the host of phage i and the host of phage j.
+	1) calculate all host pairwise phylogenetic distances using the function cophenetic() from the package 'ape'
+		treedist=cophenetic(genustree)	
+	2) record distances between each of pair of phages' hosts by using the above and phostgen
+
+		#a syntactical trick is to assign the phage accessions to rownames for phostgen
+		#rownames(phostgen)=phostgen[,1]
+		#the following could also be merged into the for loop in Step 4, part 3 above to save some time if desired.
+
+		phosttreedist=array(0,dim=c(length(phagelist),length(phagelist)))
+		colnames(phosttreedist)=rownames(phosttreedist)=phagelist
+
+		for(i in 2:length(phagelist)){for(j in 1:(i-1))		#iterate through each unique phage pair
+		{
+			phosttreedist[i,j]=treedist[phostgen[phagelist[i],2],phostgen[phagelist[j],2]]
+		}}
+
+		phosttreedist=phosttreedist+t(phosttreedist)		#make symmetric
+
+The resulting phosttreedist matrix has the same dimensions as psim and pdist and can be used for direct comparison, such as through regression, of phage host relatedness to either measure of phage relatedness based on gene network topology. (Note: if comparing to pdist, it's necessary to ignore any values equal to Inf.)
